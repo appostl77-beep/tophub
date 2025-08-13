@@ -1,0 +1,74 @@
+/* Offline Page Styles */
+:root {
+    --background: hsl(210, 40%, 98%);
+    --foreground: hsl(222, 39%, 12%);
+    --primary: hsl(213, 90%, 35%);
+    --primary-foreground: hsl(210, 40%, 98%);
+    --muted-foreground: hsl(215, 16%, 46%);
+    --radius: 0.75rem;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Manrope', system-ui, sans-serif;
+    background: var(--background);
+    color: var(--foreground);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.offline-container {
+    text-align: center;
+    padding: 2rem;
+    max-width: 500px;
+}
+
+.offline-icon {
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.offline-content h1 {
+    font-size: 2rem;
+    margin: 0 0 1rem 0;
+    font-weight: 700;
+}
+
+.offline-content p {
+    color: var(--muted-foreground);
+    margin: 0 0 1rem 0;
+    line-height: 1.6;
+}
+
+.offline-actions {
+    margin-top: 2rem;
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: 1px solid var(--primary);
+    border-radius: var(--radius);
+    background: var(--primary);
+    color: var(--primary-foreground);
+    font-family: inherit;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn:hover {
+    background: hsl(213, 90%, 30%);
+    border-color: hsl(213, 90%, 30%);
+}
