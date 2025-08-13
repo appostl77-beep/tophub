@@ -17,7 +17,7 @@
         <div style="display: flex; gap: 1rem; flex-wrap: wrap; font-size: 0.875rem; color: var(--muted-foreground);">
             <div style="display: flex; align-items: center; gap: 0.25rem;">
                 <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                 </svg>
                 {category}
             </div>
@@ -141,21 +141,10 @@
                 </div>
                 
                 <div id="tab-lists" class="tab-content" style="display: none; min-height: 120px;">
-                    [xfgiven_rating_lists]
                     <div style="background: var(--accent); padding: 1.5rem; border-radius: var(--radius); border: 1px solid var(--border);">
-                        <h4 style="margin: 0 0 1rem 0; color: var(--foreground); font-weight: 600;">Входит в рейтинги</h4>
-                        {xfvalue_rating_lists}
+                        <h4 style="margin: 0 0 1rem 0; color: var(--foreground); font-weight: 600;">Рейтинги с этим пунктом</h4>
+                        {related-news}
                     </div>
-                    [/xfgiven_rating_lists]
-                    [xfnotgiven_rating_lists]
-                    <div style="background: var(--muted); padding: 2rem; border-radius: var(--radius); text-align: center; color: var(--muted-foreground);">
-                        <svg width="48" height="48" fill="currentColor" viewBox="0 0 24 24" style="margin-bottom: 1rem; opacity: 0.5;">
-                            <path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/>
-                        </svg>
-                        <p style="margin: 0; font-size: 1.1rem;">Пока не входит в другие рейтинги</p>
-                        <p style="margin: 0.5rem 0 0 0; font-size: 0.875rem;">Информация о вхождении в тематические подборки будет добавлена</p>
-                    </div>
-                    [/xfnotgiven_rating_lists]
                 </div>
                 
                 <div id="tab-links" class="tab-content" style="display: none; min-height: 120px;">
@@ -189,9 +178,6 @@
         [/tags]
     </div>
 </article>
-
-<!-- Related News -->
-{related-news}
 
 <!-- Comments Section -->
 <div class="comments-section">

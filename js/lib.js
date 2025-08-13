@@ -246,8 +246,40 @@ function toggleFavorite(newsId){
     }catch(e){console.log(e)}
 }
 
+// Mobile menu functionality
+function initMobileMenu() {
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+    
+    if (mobileMenuToggle && mobileMenu) {
+        mobileMenuToggle.addEventListener('click', function() {
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        if (mobileMenuClose) {
+            mobileMenuClose.addEventListener('click', function() {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        }
+        
+        // Close menu when clicking outside
+        mobileMenu.addEventListener('click', function(e) {
+            if (e.target === mobileMenu) {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    }
+}
+
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize mobile menu
+    initMobileMenu();
+    
     // Add smooth scrolling to anchor links
     var anchorLinks = document.querySelectorAll('a[href^="#"]');
     anchorLinks.forEach(function(link) {

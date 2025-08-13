@@ -154,22 +154,110 @@
         </div>
     </div>
     
-    <!-- Main Content -->
-    <div class="container">
-        <!-- Breadcrumbs -->
-        {speedbar}
-        
-        <div class="main-content">
-            <!-- Content Area -->
-            <main class="content-area">
-                {info}
-                {content}
-            </main>
+    <!-- Main Page Content -->
+    <div class="main-page">
+        <!-- Hero Section -->
+        <section class="hero-section" style="margin-bottom: 3rem;">
+            <div style="text-align: center; padding: 3rem 1rem; background: linear-gradient(135deg, var(--primary) 0%, hsl(213, 80%, 45%) 100%); border-radius: var(--radius); color: white;">
+                <h1 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem;">Добро пожаловать в TopHub</h1>
+                <p style="font-size: 1.25rem; margin-bottom: 2rem; opacity: 0.9;">Лучшие рейтинги и обзоры в одном месте</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="/categories/" class="btn btn-secondary" style="background: rgba(255,255,255,0.2); color: white; border: 1px solid rgba(255,255,255,0.3);">
+                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        Смотреть категории
+                    </a>
+                    <a href="/ratings/" class="btn btn-secondary" style="background: rgba(255,255,255,0.2); color: white; border: 1px solid rgba(255,255,255,0.3);">
+                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                        </svg>
+                        Все рейтинги
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest Ratings -->
+        <section class="latest-ratings" style="margin-bottom: 3rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                <h2 style="margin: 0; font-size: 1.75rem; font-weight: 600;">Последние рейтинги</h2>
+                <a href="/ratings/" class="btn btn-outline" style="font-size: 0.875rem;">
+                    Смотреть все
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                    </svg>
+                </a>
+            </div>
             
-            <!-- Sidebar -->
-            [desktop] {include file="modules/sidebar.tpl"} [/desktop]
-        </div>
+            <div class="ratings-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem;">
+                {custom category="1" template="shortstory" limit="6"}
+            </div>
+        </section>
+
+        <!-- Popular Categories -->
+        <section class="popular-categories" style="margin-bottom: 3rem;">
+            <h2 style="margin-bottom: 1.5rem; font-size: 1.75rem; font-weight: 600;">Популярные категории</h2>
+            
+            <div class="categories-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.5rem;">
+                {custom category="1" template="categorymenu" limit="8"}
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-section" style="margin-bottom: 3rem;">
+            <div style="background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem;">
+                <h2 style="margin-bottom: 1.5rem; font-size: 1.75rem; font-weight: 600; text-align: center;">Статистика сайта</h2>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center;">
+                    <div class="stat-item">
+                        <div style="font-size: 2.5rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">{stats-news}</div>
+                        <div style="color: var(--muted-foreground); font-weight: 500;">Рейтингов</div>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <div style="font-size: 2.5rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">{stats-comments}</div>
+                        <div style="color: var(--muted-foreground); font-weight: 500;">Комментариев</div>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <div style="font-size: 2.5rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">{stats-users}</div>
+                        <div style="color: var(--muted-foreground); font-weight: 500;">Пользователей</div>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <div style="font-size: 2.5rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">{stats-views}</div>
+                        <div style="color: var(--muted-foreground); font-weight: 500;">Просмотров</div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
+
+    <style>
+    /* Main page responsive styles */
+    @media (max-width: 768px) {
+        .hero-section h1 {
+            font-size: 2rem !important;
+        }
+        
+        .hero-section p {
+            font-size: 1.1rem !important;
+        }
+        
+        .ratings-grid {
+            grid-template-columns: 1fr !important;
+        }
+        
+        .categories-grid {
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important;
+        }
+        
+        .stats-section .stat-item div:first-child {
+            font-size: 2rem !important;
+        }
+    }
+    </style>
     
     <!-- Footer -->
     {include file="modules/footer.tpl"}
